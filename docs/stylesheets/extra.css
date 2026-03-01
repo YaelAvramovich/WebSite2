@@ -1,0 +1,276 @@
+/* =========================================================
+   Gradient Color Theme - MkDocs Material Custom Styles
+   ========================================================= */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 60%, #f5576c 100%);
+  --hero-min-height: 340px;
+  --hero-text-color: #ffffff;
+  --hero-shadow: 0 4px 24px rgba(102, 126, 234, 0.35);
+  --card-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+[data-md-color-scheme="slate"] {
+  --gradient-hero: linear-gradient(135deg, #3a1c71 0%, #d76d77 60%, #ffaf7b 100%);
+  --hero-shadow: 0 4px 24px rgba(58, 28, 113, 0.5);
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+  background: var(--gradient-hero);
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  box-shadow: var(--hero-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.hero-title {
+  color: var(--hero-text-color) !important;
+  font-size: clamp(2rem, 5vw, 3.25rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 1rem !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: -0.02em;
+  border-bottom: none !important;
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-speed), border-color var(--transition-speed),
+              transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.hero-cta:hover,
+.hero-cta:focus {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.hero-cta:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ---------- Navigation gradient accent ---------- */
+.md-header {
+  background: var(--gradient-primary) !important;
+}
+
+.md-tabs {
+  background: var(--gradient-primary) !important;
+}
+
+/* ---------- Feature Cards ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-card:hover,
+.feature-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  outline: none;
+}
+
+.feature-card:focus-visible {
+  outline: 3px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.5;
+}
+
+/* ---------- Contact Form ---------- */
+.contact-form {
+  max-width: 640px;
+  margin: 2rem auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-submit {
+  display: inline-block;
+  background: var(--gradient-primary);
+  color: #ffffff !important;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition-speed), transform var(--transition-speed),
+              box-shadow var(--transition-speed);
+  text-decoration: none;
+}
+
+.form-submit:hover,
+.form-submit:focus {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+  outline: none;
+}
+
+.form-submit:focus-visible {
+  outline: 3px solid #764ba2;
+  outline-offset: 3px;
+}
+
+/* ---------- Blog section intro text ---------- */
+.blog-intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--md-default-fg-color--light);
+  border-left: 4px solid #764ba2;
+  padding-left: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+/* ---------- Gradient text utility ---------- */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 3rem 1.25rem;
+    min-height: 260px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Accessibility: skip link ---------- */
+.md-skip {
+  background: var(--gradient-primary) !important;
+  color: #fff !important;
+}
+
+/* ---------- Focus ring for all interactive elements ---------- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #764ba2;
+  outline-offset: 2px;
+}
