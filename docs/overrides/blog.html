@@ -1,0 +1,32 @@
+{#-
+  Custom blog index template — extends our main.html so the hero is injected
+  before the blog post listing, then delegates to Material's blog block.
+-#}
+{% extends "main.html" %}
+{% block container %}
+  {% if page.meta and page.meta.hero_title %}
+  <div class="hero-section" role="banner" aria-label="{{ page.meta.hero_title }}">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ page.meta.hero_title }}</h1>
+      {% if page.meta.hero_subtitle %}
+      <p class="hero-subtitle">{{ page.meta.hero_subtitle }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        {{ page.content }}
+      </header>
+      {% for post in posts %}
+        {% include "partials/post.html" %}
+      {% endfor %}
+      {% if pagination %}
+        {% block pagination %}
+          {% include "partials/pagination.html" %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
